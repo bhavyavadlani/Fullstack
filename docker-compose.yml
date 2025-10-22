@@ -6,7 +6,7 @@ services:
     container_name: mysql-db
     environment:
       MYSQL_ROOT_PASSWORD: docker
-      MYSQL_DATABASE: petdb;
+      MYSQL_DATABASE: petdb
     ports:
       - "3307:3306"
     volumes:
@@ -15,7 +15,7 @@ services:
       - springboot-mysql-net
 
   backend:
-    image: bhavyavadlani/docker-backend:latest
+    image: bhavyavadlan:latest
     container_name: springboot
     ports:
       - "2025:1234"
