@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         TOMCAT_HOME = "/Users/vadlanibhavya/Downloads/apache-tomcat-10.1.43"
-        PATH = "/opt/homebrew/bin:${env.PATH}"
+        PATH = "/opt/homebrew/bin:/usr/local/bin:${env.PATH}"  // ensures npm, node, mvn are found
     }
 
     stages {
@@ -13,8 +13,8 @@ pipeline {
             steps {
                 dir('PetFrontend') {
                     sh '''
-                    npm install
-                    npm run build
+                    /bin/bash -l -c "npm install"
+                    /bin/bash -l -c "npm run build"
                     '''
                 }
             }
@@ -41,7 +41,7 @@ pipeline {
             steps {
                 dir('PetBackend') {
                     sh '''
-                    mvn clean package
+                    /bin/bash -l -c "mvn clean package"
                     '''
                 }
             }
@@ -78,10 +78,10 @@ pipeline {
 
     post {
         success {
-            echo 'Deployment Successful!'
+            echo ' Deployment Successful!'
         }
         failure {
-            echo 'Pipeline Failed..'
+            echo 'Pipeline Failed.'
         }
     }
 }
