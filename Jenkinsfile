@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         TOMCAT_HOME = "/Users/vadlanibhavya/Downloads/apache-tomcat-10.1.43"
-        PATH = "/opt/homebrew/bin:/usr/local/bin:${env.PATH}"  // ensures npm, node, mvn are found
+        PATH = "/opt/homebrew/bin:/usr/local/bin:${env.PATH}" 
     }
 
     stages {
